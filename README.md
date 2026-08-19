@@ -34,3 +34,18 @@ The materials used in this project are given in the table
 
 ---
 
+## What I learnt throough this project
+
+This is a simple project which helped me to understand about hardware, microcoroller, aerodynamic, physic and some electricity. I learnt:
+
+- **Aerodynamic and physic:** This project taught me about how rotation speed with a respected direction effects drone motion and rotation. I learnt about thrust
+
+- **Electricity:** One of the unexpected hardest part of this project was managing electricity/current for the component. It taught me about importance of c-rating, capacity of battery while doing poject like this; just normal 12v lipo battery can't provide enough power for all 4 motor to lift and control drone
+
+- **Some component knowledge:** I used a new component called mpu 6050 which helped me to contorl the drone movement. I had also done something new and big with esp32.
+
+---
+
+## Some extra info...
+
+I did most of my research through chatgpt and youtube. I had learnt most of the required concept for this project years ago(roughly) but uniting all and making project like this also required some extra research
