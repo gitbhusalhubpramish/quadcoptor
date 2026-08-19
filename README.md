@@ -23,3 +23,14 @@ The materials used in this project are given in the table
 ## Circit diagram
 
 <img src="circit diagram.drawio.png">
+
+### Explaination 
+
+- **Connection:** All the digital(signal) pins are controlled and connected by esp32 while power is circulated from motor esc to esp and mpu6050 through battery.
+
+- **motor rotation:** each pair of diagonal motor has same wiring but one pair has swaped 2 wire compared to another. It cancels rotation thrust of drone.
+
+- **mpu 6050:** This is a 6-axis gyro and accelerometer. This tells the acceleration and change in rotation which helps to manage the stability of drone.
+
+---
+
