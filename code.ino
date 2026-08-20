@@ -30,3 +30,10 @@ void setup(){
 		while(1);
 	}
 }
+
+void loop(){
+	int16_t ax,ay,az,gx,gy,gz;
+
+	mpu.getMotion6(&az,&ay, &az, &gx, &gy, &gz);
+	delay(10);
+}
