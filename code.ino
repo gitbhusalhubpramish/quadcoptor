@@ -13,6 +13,8 @@ const int dm4 = 26;
 25ccw    26cw
 */
 
+MPU6050 mpu;
+
 void setup(){
 	Serial.begin(115200);
 	Wire.begin(21,22);
@@ -21,4 +23,10 @@ void setup(){
 	m2.attach(dm2);
 	m3.attach(dm3);
 	m4.attach(dm4);
+
+	mpu.initlialize();
+
+	if (!mpu.testConnection()){
+		while(1);
+	}
 }
