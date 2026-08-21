@@ -33,6 +33,15 @@ void setup(){
 	if (!mpu.testConnection()){
 		while(1);
 	}
+
+	for(int i; i<=100; i++){
+		m1.writeMicroseconds(1200+i*2);
+		m2.writeMicroseconds(1200+i*2);
+		m3.writeMicroseconds(1200 + i*2);
+		m4.writeMicroseconds(1200 + i*2);
+		delay(20);
+	}
+	
 }
 
 void loop(){
