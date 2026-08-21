@@ -1,3 +1,4 @@
+#include "BluetoothSerial.h"
 #include <Wire.h>
 #include <MPU6050.h>
 #include <Servo.h>
@@ -14,9 +15,12 @@ const int dm4 = 26;
 */
 
 MPU6050 mpu;
+BluetoothSerial SerialBT;
 
 void setup(){
 	Serial.begin(115200);
+	SerialBT.begin("ESP_Drone");
+
 	Wire.begin(21,22);
 	
 	m1.attach(dm1);
@@ -35,5 +39,11 @@ void loop(){
 	int16_t ax,ay,az,gx,gy,gz;
 
 	mpu.getMotion6(&az,&ay, &az, &gx, &gy, &gz);
+	
+	char command = "D";
+	
+	if (SerialBT.aviable()){
+	command = SerialBT.read();
+	}
 	delay(10);
 }
