@@ -2,6 +2,7 @@
 #include <Wire.h>
 #include <MPU6050.h>
 #include <Servo.h>
+#include <cmath>
 
 Servo m1, m2, m3, m4;
 const int dm1 = 24;
@@ -16,6 +17,12 @@ const int dm4 = 26;
 
 MPU6050 mpu;
 BluetoothSerial SerialBT;
+
+int torhi = 1700;
+int torlo = 1200;
+int tormid = 1500;
+const int disacc = 40;
+const float disang = atan(40/9.81);
 
 void setup(){
 	Serial.begin(115200);
@@ -52,7 +59,8 @@ void loop(){
 	char command = "D";
 	
 	if (SerialBT.aviable()){
-	command = SerialBT.read();
+		command = SerialBT.read();
 	}
+
 	delay(10);
 }
