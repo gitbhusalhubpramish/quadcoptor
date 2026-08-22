@@ -83,9 +83,9 @@ void loop(){
 		dispitch = disang;
 	}else if (command == "U"){
 		dishacc += disacc;
-	}else if (command == "A"){
+	}else if (command == "Y"){
 		disyaw = disang;
-	}else if (command == "D"){
+	}else if (command == "Z"){
 		disyaw = -disang;
 	}
 
