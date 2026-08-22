@@ -72,6 +72,7 @@ void loop(){
 	int disroll = 0;
 	int disyaw = 0;
 	int dishacc = 9.80665;
+	
 	if (command=="L"){
 		disroll = disang;
 	}else if (command=="R"){
@@ -81,7 +82,11 @@ void loop(){
 	}else if (command == "B"){
 		dispitch = disang;
 	}else if (command == "U"){
-		dishacc += disacc
+		dishacc += disacc;
+	}else if (command == "A"){
+		disyaw = disang;
+	}else if (command == "D"){
+		disyaw = -disang;
 	}
 
 	int he = dishacc - az;
