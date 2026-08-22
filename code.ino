@@ -87,7 +87,12 @@ void loop(){
 	int he = dishacc - az;
 	int re = disroll - gy;
 	int pe = dispitch - gx;
-	int ye = disyaw - gz;	
+	int ye = disyaw - gz;
+
+	int p_h = kp_hor*he;
+	int p_r = kp_roll*re;
+	int p_p = kp_pitch*pe;
+	int p_y = kp_yaw*ye;
 
 	delay(10);
 }
