@@ -104,5 +104,10 @@ void loop(){
 	int m3t = thrust + p_h - p_r + p_p - p_y;
 	int m4t = thrust + p_h + p_r - p_p + p_y;
 
+	m1.writeMicroseconds(m1t);
+	m2.writeMicroseconds(m2t);
+	m3.writeMicroseconds(m3t);
+	m4.writeMicroseconds(m4t);
+
 	delay(10);
 }
