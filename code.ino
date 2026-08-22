@@ -94,5 +94,10 @@ void loop(){
 	int p_p = kp_pitch*pe;
 	int p_y = kp_yaw*ye;
 
+	int m1t = thrust + p_h - p_r - p_p + p_y;
+	int m2t = thrust + p_h + p_r - p_p - p_y;
+	int m3t = thrust + p_h - p_r + p_p - p_y;
+	int m4t = thrust + p_h + p_r - p_p + p_y;
+
 	delay(10);
 }
