@@ -22,6 +22,11 @@ int thrust = 1500;//this has to be fixed after drone is made and by checking whi
 const int disacc = 0.4;
 const float disang = atan(40/9.81);
 
+const int kp_pitch = 10;
+const int kp_roll = 10;
+const int kp_yaw=7;
+const int kp_hor = 10;
+
 void setup(){
 	Serial.begin(115200);
 	SerialBT.begin("ESP_Drone");
@@ -79,6 +84,10 @@ void loop(){
 		dishacc += disacc
 	}
 
-	
+	int he = dishacc - az;
+	int re = disroll - gy;
+	int pe = dispitch - gx;
+	int ye = disyaw - gz;	
+
 	delay(10);
 }
