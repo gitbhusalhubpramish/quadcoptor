@@ -52,8 +52,11 @@ void setup(){
 void loop(){
 	int16_t ax,ay,az,gx,gy,gz;
 
-	mpu.getMotion6(&az,&ay, &az, &gx, &gy, &gz);
+	mpu.getMotion6(&ax,&ay, &az, &gx, &gy, &gz);
 	
+	ax,ay,az = ax*(9.80665/16348), ay*(9.80665/16348), az*(9.80665/16348);
+	gx,gy,gz = gx/131, gy/131, gz/131;
+
 	char command = "D";
 	
 	if (SerialBT.aviable()){
