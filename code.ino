@@ -19,7 +19,7 @@ MPU6050 mpu;
 BluetoothSerial SerialBT;
 
 int thrust = 1500;//this has to be fixed after drone is made and by checking which valeu is best
-const int disacc = 40;
+const int disacc = 0.4;
 const float disang = atan(40/9.81);
 
 void setup(){
@@ -65,7 +65,8 @@ void loop(){
 	
 	int dispitch = 0;
 	int disroll = 0;
-	int disyaw = 0
+	int disyaw = 0;
+	int dishacc = 9.80665;
 	if (command=="L"){
 		disroll = disang;
 	}else if (command=="R"){
@@ -74,7 +75,10 @@ void loop(){
 		dispitch = -disang;
 	}else if (command == "B"){
 		dispitch = disang;
+	}else if (command == "U"){
+		dishacc += disacc
 	}
 
+	
 	delay(10);
 }
