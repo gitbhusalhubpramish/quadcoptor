@@ -18,9 +18,7 @@ const int dm4 = 26;
 MPU6050 mpu;
 BluetoothSerial SerialBT;
 
-int torhi = 1700;
-int torlo = 1200;
-int tormid = 1500;
+int thrust = 1500;//this has to be fixed after drone is made and by checking which valeu is best
 const int disacc = 40;
 const float disang = atan(40/9.81);
 
@@ -60,6 +58,19 @@ void loop(){
 	
 	if (SerialBT.aviable()){
 		command = SerialBT.read();
+	}
+	
+	int dispitch = 0;
+	int disroll = 0;
+	int disyaw = 0
+	if (command=="L"){
+		disroll = disang;
+	}else if (command=="R"){
+		disroll = -disang;
+	}else if (command=="F"){
+		dispitch = -disang;
+	}else if (command == "B"){
+		dispitch = disang;
 	}
 
 	delay(10);
