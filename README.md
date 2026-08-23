@@ -50,7 +50,7 @@ $$
  1 & -1 & 1 & -1 \\
  1 & 1 & -1 & 1 
 \end{bmatrix} 
-( 
+\left( 
 \begin{bmatrix} H_e \\ 
 R_e \\ 
 P_e \\ 
@@ -60,7 +60,7 @@ K_p^R \\
 K_p^P \\ 
 K_p^Y 
 \end{bmatrix} 
-)
+\right)
 $$
 
 **Where:**
@@ -76,10 +76,10 @@ $$
 - **Changing the tororence:** Here we change the tororence of the motor using what we calculated last time.
 
 $$
-\begin{bmatrix} T_m1 \\ 
-T_m2 \\ 
-T_m3 \\ 
-T_m4 
+\begin{bmatrix} T_{m1} \\ 
+T_{m2} \\ 
+T_{m3} \\ 
+T_{m4} 
 \end{bmatrix} = \begin{bmatrix} m1 \\ 
 m2 \\ 
 m3 \\ 
