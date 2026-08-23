@@ -20,7 +20,7 @@ BluetoothSerial SerialBT;
 
 int thrust = 1500;//this has to be fixed after drone is made and by checking which valeu is best
 const int disacc = 0.4;
-const float disang = atan(40/9.81);
+const float disang = atan(0.4/9.81);
 
 const int kp_pitch = 10;
 const int kp_roll = 10;
@@ -38,13 +38,13 @@ void setup(){
 	m3.attach(dm3);
 	m4.attach(dm4);
 
-	mpu.initlialize();
+	mpu.initialize();
 
 	if (!mpu.testConnection()){
 		while(1);
 	}
 
-	for(int i; i<=100; i++){
+	for(int i=0; i<=100; i++){
 		m1.writeMicroseconds(1200+i*2);
 		m2.writeMicroseconds(1200+i*2);
 		m3.writeMicroseconds(1200 + i*2);
@@ -55,41 +55,41 @@ void setup(){
 }
 
 void loop(){
-	int16_t ax,ay,az,gx,gy,gz;
+	int16_t axr,ayr,azr,gxr,gyr,gzr;
 
-	mpu.getMotion6(&ax,&ay, &az, &gx, &gy, &gz);
+	mpu.getMotion6(&axr,&ayr, &azr, &gxr, &gyr, &gzr);
 	
-	ax,ay,az = ax*(9.80665/16348), ay*(9.80665/16348), az*(9.80665/16348);
-	gx,gy,gz = gx/131, gy/131, gz/131;
+	float ax,ay,az = axr*(9.80665/16348), ayr*(9.80665/16348), azr*(9.80665/16348);
+	float gx,gy,gz = gxr/131, gyr/131, gzr/131;
 
-	char command = "D";
+	char command = 'D';
 	
-	if (SerialBT.aviable()){
+	if (SerialBT.available()){
 		command = SerialBT.read();
 	}
 	
-	int dispitch = 0;
-	int disroll = 0;
-	int disyaw = 0;
-	int dishacc = 9.80665;
+	float dispitch = 0;
+	float disroll = 0;
+	float disyaw = 0;
+	float dishacc = 9.80665;
 	
-	if (command=="L"){
+	if (command=='L'){
 		disroll = disang;
-	}else if (command=="R"){
+	}else if (command=='R'){
 		disroll = -disang;
-	}else if (command=="F"){
+	}else if (command=='F'){
 		dispitch = -disang;
-	}else if (command == "B"){
+	}else if (command == 'B'){
 		dispitch = disang;
-	}else if (command == "U"){
+	}else if (command == 'U'){
 		dishacc += disacc;
-	}else if (command == "Y"){
+	}else if (command == 'Y'){
 		disyaw = disang;
-	}else if (command == "Z"){
+	}else if (command == 'Z'){
 		disyaw = -disang;
 	}
 
-	int he = dishacc - az;
+	float he = dishacc - az;
 	int re = disroll - gy;
 	int pe = dispitch - gx;
 	int ye = disyaw - gz;
