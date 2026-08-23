@@ -41,7 +41,23 @@ The materials used in this project are given in the table
 - **Calculating error and change required in tororence:** 4 motors are controlled by a esp32 and esc for each. they use some maths and physic to be stabel. The concept used to calculate the speed of motor to make the drone stable is given:
 
 $$
-\begin{bmatrix} m1 \\ m2 \\ m3 \\ m4 \end{bmatrix} = \begin{bmatrix} 1 & -1 & -1 & 1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & 1 \end{bmatrix} ( \begin{bmatrix} H_e \\ R_e \\ P_e \\ Y_e \end{bmatrix} \begin{bmatrix} K_p^H \\ K_p^R \\ K_p^P \\ K_p^Y \end{bmatrix} )
+\begin{bmatrix} m1 \\
+ m2 \\
+ m3 \\
+ m4 
+\end{bmatrix} = \begin{bmatrix} 1 & -1 & -1 & 1 \\
+ 1 & 1 & -1 & -1 \\
+ 1 & -1 & 1 & -1 \\
+ 1 & 1 & -1 & 1 
+\end{bmatrix} ( \begin{bmatrix} H_e \\ 
+R_e \\ 
+P_e \\ 
+Y_e 
+\end{bmatrix} \begin{bmatrix} K_p^H \\ 
+K_p^R \\ 
+K_p^P \\ 
+K_p^Y 
+\end{bmatrix} )
 $$
 
 	**Where:**
