@@ -65,13 +65,13 @@ $$
 
 **Where:**
 
-		- **$mx$** is the required changed to motor torence.
-		- **$H$** is the height of dorne
-		- **$R$** is the roll of drone.
-		- **$P$** is the pitch of drone.
-		- **$Y$** is the yaw of drone
-		- **$e$** is the error.
-		- **$K_p$** is propertional which tells how aggressively should the tororence be changed per unit error.
+        - **$mx$** is the required changed to motor torence.
+        - **$H$** is the height of dorne
+        - **$R$** is the roll of drone.
+        - **$P$** is the pitch of drone.
+        - **$Y$** is the yaw of drone
+        - **$e$** is the error.
+        - **$K_p$** is propertional which tells how aggressively should the tororence be changed per unit error.
 
 - **Changing the tororence:** Here we change the tororence of the motor using what we calculated last time.
 
@@ -93,8 +93,8 @@ $$
 
 **Where:**
 
-	- **$T$** is the base tororance.
-	- **$T_mx$** is the tororence to motor *x*.
+    - **$T$** is the base tororance.
+    - **$T_mx$** is the tororence to motor *x*.
 
 ## What I learnt throough this project
 
