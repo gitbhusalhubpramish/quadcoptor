@@ -49,7 +49,9 @@ $$
  1 & 1 & -1 & -1 \\
  1 & -1 & 1 & -1 \\
  1 & 1 & -1 & 1 
-\end{bmatrix} ( \begin{bmatrix} H_e \\ 
+\end{bmatrix} 
+( 
+\begin{bmatrix} H_e \\ 
 R_e \\ 
 P_e \\ 
 Y_e 
@@ -57,11 +59,12 @@ Y_e
 K_p^R \\ 
 K_p^P \\ 
 K_p^Y 
-\end{bmatrix} )
+\end{bmatrix} 
+)
 $$
 
-	**Where:**
-		
+**Where:**
+
 		- **$mx$** is the required changed to motor torence.
 		- **$H$** is the height of dorne
 		- **$R$** is the roll of drone.
@@ -73,10 +76,22 @@ $$
 - **Changing the tororence:** Here we change the tororence of the motor using what we calculated last time.
 
 $$
-\begin{bmatrix} T_m1 \\ T_m2 \\ T_m3 \\ T_m4 \end{bmatrix} = \begin{bmatrix} m1 \\ m2 \\ m3 \\ m4 \end{bmatrix} + \begin{bmatrix} T \\ T \\ T \\ T \end{bmatrix} 
+\begin{bmatrix} T_m1 \\ 
+T_m2 \\ 
+T_m3 \\ 
+T_m4 
+\end{bmatrix} = \begin{bmatrix} m1 \\ 
+m2 \\ 
+m3 \\ 
+m4 
+\end{bmatrix} + \begin{bmatrix} T \\ 
+T \\ 
+T \\ 
+T 
+\end{bmatrix} 
 $$
 
-	**Where:**
+**Where:**
 		- **$T$** is the base tororance.
 		- **$T_mx$** is the tororence to motor *x*.
 
