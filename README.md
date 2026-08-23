@@ -34,6 +34,36 @@ The materials used in this project are given in the table
 
 ---
 
+## How it works?
+
+- **Signal input:** The drone is connected by bluetooth and contorlled by an app which gives us 8 signals('F', 'B', 'L', 'R', 'Y', 'Z', 'U', 'D') 
+
+- **Calculating error and change required in tororence:** 4 motors are controlled by a esp32 and esc for each. they use some maths and physic to be stabel. The concept used to calculate the speed of motor to make the drone stable is given:
+
+$$
+\begin{bmatrix} m1 \\ m2 \\ m3 \\ m4 \end{bmatrix} = \begin{bmatrix} 1 & -1 & -1 & 1 \\ 1 & 1 & -1 & -1 \\ 1 & -1 & 1 & -1 \\ 1 & 1 & -1 & 1 \end{bmatrix} ( \begin{bmatrix} H_e \\ R_e \\ P_e \\ Y_e \end{bmatrix} \begin{bmatrix} K_p^H \\ K_p^R \\ K_p^P \\ K_p^Y )
+$$
+
+	**Where:**
+		
+		- **$mx$** is the required changed to motor torence.
+		- **$H$** is the height of dorne
+		- **$R$** is the roll of drone.
+		- **$P$** is the pitch of drone.
+		- **$Y$** is the yaw of drone
+		- **$e$** is the error.
+		- **$K_p$** is propertional which tells how aggressively should the tororence be changed per unit error.
+
+- **Changing the tororence:** Here we change the tororence of the motor using what we calculated last time.
+
+$$
+\begin{bmatrix} T_m1 \\ T_m2 \\ T_m3 \\ T_m4 \end{bmatrix} = \begin{bmatrix} m1 \\ m2 \\ m3 \\ m4 \end{bmatrix} + \begin{bmatrix} T \\ T \\ T \\ T \end{bmatrix} 
+$$
+
+	**Where:**
+		- **$T$** is the base tororance.
+		- **$T_mx$** is the tororence to motor *x*.
+
 ## What I learnt throough this project
 
 This is a simple project which helped me to understand about hardware, microcoroller, aerodynamic, physic and some electricity. I learnt:
