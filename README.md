@@ -92,8 +92,9 @@ T
 $$
 
 **Where:**
-		- **$T$** is the base tororance.
-		- **$T_mx$** is the tororence to motor *x*.
+
+	- **$T$** is the base tororance.
+	- **$T_mx$** is the tororence to motor *x*.
 
 ## What I learnt throough this project
 
