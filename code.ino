@@ -75,13 +75,13 @@ void loop(){
         lastTime = now;
 
 	
-	float ax = axr*(9.80665/16348);
-	float ay = ayr*(9.80665/16348);
-	float az = azr*(9.80665/16348);
+	float ax = axr*(9.80665/16384);
+	float ay = ayr*(9.80665/16384);
+	float az = azr*(9.80665/16384);
 
-	float gx = gxr/131;
-	float gy = gyr/131;
-	float gz = gzr/131;
+	float gx = gxr/131.0;
+	float gy = gyr/131.0;
+	float gz = gzr/131.0;
 	
 	pitch += gy*dt;
 	roll += gx*dt;
