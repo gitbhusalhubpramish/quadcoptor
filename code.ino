@@ -27,6 +27,11 @@ const int kp_roll = 10;
 const int kp_yaw=7;
 const int kp_hor = 10;
 
+float pitch = 0;
+float roll = 0;
+float yaw = 0;
+float h = 0;
+
 void setup(){
 	Serial.begin(115200);
 	SerialBT.begin("ESP_Drone");
@@ -61,6 +66,11 @@ void loop(){
 	
 	float ax,ay,az = axr*(9.80665/16348), ayr*(9.80665/16348), azr*(9.80665/16348);
 	float gx,gy,gz = gxr/131, gyr/131, gzr/131;
+	
+	pitch += gy*0.01;
+	roll += gx*0.01;
+	yaw += gz*0.01;
+	h += az*0.01;
 
 	char command = 'D';
 	
@@ -89,10 +99,10 @@ void loop(){
 		disyaw = -disang;
 	}
 
-	float he = dishacc - az;
-	int re = disroll - gy;
-	int pe = dispitch - gx;
-	int ye = disyaw - gz;
+	float he = dishacc - h;
+	int re = disroll - roll;
+	int pe = dispitch - pitch;
+	int ye = disyaw - yaw;
 
 	int p_h = kp_hor*he;
 	int p_r = kp_roll*re;
