@@ -4,6 +4,8 @@
 #include <Servo.h>
 #include <cmath>
 
+const float PI = 3.1415;
+
 Servo m1, m2, m3, m4;
 const int dm1 = 24;
 const int dm2 = 23;
@@ -20,7 +22,7 @@ BluetoothSerial SerialBT;
 
 int thrust = 1500;//this has to be fixed after drone is made and by checking which valeu is best
 const int disacc = 0.4;
-const float disang = atan(0.4/9.81);
+const float disang = atan(0.4/9.81) * 180/PI;
 
 const int kp_pitch = 10;
 const int kp_roll = 10;
@@ -71,11 +73,19 @@ void loop(){
 	float gx = gxr/131;
 	float gy = gyr/131;
 	float gz = gzr/131;
+
+	statuc unsigned long lastTime = micros();
+
+	unsigned long now = micros();
 	
-	pitch += gy*0.01;
-	roll += gx*0.01;
-	yaw += gz*0.01;
-	h += az*0.01;
+	float dt = (now-lastTime) / 1000000.0;
+	
+	lastTime = now;
+	
+	pitch += gy*dt;
+	roll += gx*dt;
+	yaw += gz*dt;
+	h += az*dt;
 
 	char command = 'D';
 	
