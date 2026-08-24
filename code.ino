@@ -86,7 +86,7 @@ void loop(){
 	pitch += gy*dt;
 	roll += gx*dt;
 	yaw += gz*dt;
-	h += az*dt;
+	h += (az-9.80665)*dt;
 
 	char command = 'D';
 	
@@ -115,7 +115,7 @@ void loop(){
 		disyaw = -disang;
 	}
 
-	float he = dishacc - h;
+	float he = dishacc - h - 9.80665;
 	float re = disroll - roll;
 	float pe = dispitch - pitch;
 	float ye = disyaw - yaw;
