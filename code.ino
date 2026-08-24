@@ -64,8 +64,13 @@ void loop(){
 
 	mpu.getMotion6(&axr,&ayr, &azr, &gxr, &gyr, &gzr);
 	
-	float ax,ay,az = axr*(9.80665/16348), ayr*(9.80665/16348), azr*(9.80665/16348);
-	float gx,gy,gz = gxr/131, gyr/131, gzr/131;
+	float ax = axr*(9.80665/16348);
+	float ay = ayr*(9.80665/16348);
+	float az = azr*(9.80665/16348);
+
+	float gx = gxr/131;
+	float gy = gyr/131;
+	float gz = gzr/131;
 	
 	pitch += gy*0.01;
 	roll += gx*0.01;
@@ -100,9 +105,9 @@ void loop(){
 	}
 
 	float he = dishacc - h;
-	int re = disroll - roll;
-	int pe = dispitch - pitch;
-	int ye = disyaw - yaw;
+	float re = disroll - roll;
+	float pe = dispitch - pitch;
+	float ye = disyaw - yaw;
 
 	int p_h = kp_hor*he;
 	int p_r = kp_roll*re;
@@ -113,6 +118,11 @@ void loop(){
 	int m2t = thrust + p_h + p_r - p_p - p_y;
 	int m3t = thrust + p_h - p_r + p_p - p_y;
 	int m4t = thrust + p_h + p_r - p_p + p_y;
+
+	m1t = constrain(m1t, 1000, 2000);
+	m2t = constrain(m2t, 1000, 2000);
+	m3t = constrain(m3t, 1000, 2000);
+	m4t = constrain(m4t, 1000, 2000);
 
 	m1.writeMicroseconds(m1t);
 	m2.writeMicroseconds(m2t);
