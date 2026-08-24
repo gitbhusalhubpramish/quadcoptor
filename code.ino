@@ -65,6 +65,15 @@ void loop(){
 	int16_t axr,ayr,azr,gxr,gyr,gzr;
 
 	mpu.getMotion6(&axr,&ayr, &azr, &gxr, &gyr, &gzr);
+
+	static unsigned long lastTime = micros(); 
+
+        unsigned long now = micros();
+        
+        float dt = (now-lastTime) / 1000000.0;
+
+        lastTime = now;
+
 	
 	float ax = axr*(9.80665/16348);
 	float ay = ayr*(9.80665/16348);
@@ -73,14 +82,6 @@ void loop(){
 	float gx = gxr/131;
 	float gy = gyr/131;
 	float gz = gzr/131;
-
-	statuc unsigned long lastTime = micros();
-
-	unsigned long now = micros();
-	
-	float dt = (now-lastTime) / 1000000.0;
-	
-	lastTime = now;
 	
 	pitch += gy*dt;
 	roll += gx*dt;
