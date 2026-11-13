@@ -3,6 +3,10 @@ Quadcoptor is a flying device with 4 propeller in each edge. The 4 wings creates
 
 This is a simple quadcoptor project(model) where the quadcoptor can fly and be controlled with mobile.
 
+<img src="visual.jpg"/>
+
+This is the final look of the drone in 3d design through onshape you can view it through this [link](https://cad.onshape.com/documents/60a7206555fecbcbeb8de5db/w/d464ad7832c915d0dce375d8/e/56fac254edc3df374a8c82de?renderMode=0&uiState=6af7168fdd7eea51f23f351d)
+
 ## Material used
 
 The materials used in this project are given in the table
